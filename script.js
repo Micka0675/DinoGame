@@ -12,7 +12,7 @@ function play(){
     gameSpace.style.transition = '1s';
     player.style.transition = '1s';
     player.style.left = '50px';
-    gameSpace.style.backgroundImage = 'url("./_assets/images/bckd.webp")';
+    gameSpace.style.backgroundImage = 'url("./images/bckd.webp")';
     gameSpace.style.backgroundRepeat = 'repeat';
     gameSpace.style.backgroundPosition = "0px 0px";
     gameSpace.style.animation = 'animateBckd 5s linear infinite';
@@ -48,11 +48,11 @@ function animation(type,toggle){
             
             document.removeEventListener('keydown', movement);
             clearInterval(walk);
-            player.src = "./_assets/images/start-jump.webp";
+            player.src = "./images/start-jump.webp";
             setTimeout(() => {
-                player.src = "./_assets/images/end-jump.webp";
+                player.src = "./images/end-jump.webp";
                 setTimeout(() => {
-                    player.src = "./_assets/images/initial.webp";
+                    player.src = "./images/initial.webp";
                 },300);
                 detailWalkMovement(); 
             },300);
@@ -61,7 +61,7 @@ function animation(type,toggle){
             break;
         default:
             clearInterval(walk);
-            player.src = "./_assets/images/initial.webp";
+            player.src = "./images/initial.webp";
     }
 }
 
@@ -69,11 +69,11 @@ function animation(type,toggle){
 function detailWalkMovement(){
     walk = clearInterval(walk);
     walk = setInterval(async()=>{
-        player.src = "./_assets/images/start-run.webp";
+        player.src = "./images/start-run.webp";
         setTimeout(() => {
-            player.src = "./_assets/images/run-1.webp";
+            player.src = "./images/run-1.webp";
             setTimeout(() => {
-                player.src = "./_assets/images/run-2.webp";
+                player.src = "./images/run-2.webp";
                 setTimeout(() => {
                 },100);
             },100);
