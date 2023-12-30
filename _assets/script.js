@@ -18,23 +18,35 @@ function play(){
     gameSpace.style.animation = 'animateBckd 5s linear infinite';
     // document.addEventListener('keyup', stopAnim);
     document.addEventListener('keydown', movement);
+    gameSpace.addEventListener('click', movement);
     animation('walk',toggle); 
 };
 
 //mouvement du joueur
 function movement(Event){
-    //alert(Event.keyCode);
-    switch(Event.keyCode){
-        case 32:
-            player.style.animation = 'jump 1s running';
-            animation('jump');
-            setTimeout(() => {
-                player.style.animation = 'none';
-            },1000);
-            
-            break;
-        default:
-    }
+    alert(Event);
+        //alert(Event.keyCode);
+        switch(Event.keyCode){
+            case 32:
+                player.style.animation = 'jump 1s running';
+                animation('jump');
+                setTimeout(() => {
+                    player.style.animation = 'none';
+                },1000);
+                
+                break;
+            case 32:
+                player.style.animation = 'jump 1s running';
+                animation('jump');
+                setTimeout(() => {
+                    player.style.animation = 'none';
+                },1000);
+                
+                break;
+            default:
+        }
+
+       
 }
 //animation du joueur
 function animation(type,toggle){

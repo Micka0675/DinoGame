@@ -11,30 +11,41 @@ function play(){
     startButton.style.display = 'none';
     gameSpace.style.transition = '1s';
     player.style.transition = '1s';
-    player.style.left = '50px';
-    gameSpace.style.backgroundImage = 'url("./images/bckd.webp")';
+    player.style.left = '10%';
+    gameSpace.style.backgroundImage = 'url("./_assets/images/bckd.webp")';
     gameSpace.style.backgroundRepeat = 'repeat';
     gameSpace.style.backgroundPosition = "0px 0px";
     gameSpace.style.animation = 'animateBckd 5s linear infinite';
     // document.addEventListener('keyup', stopAnim);
     document.addEventListener('keydown', movement);
+    gameSpace.addEventListener('click', movement);
     animation('walk',toggle); 
 };
 
 //mouvement du joueur
 function movement(Event){
-    //alert(Event.keyCode);
-    switch(Event.keyCode){
-        case 32:
-            player.style.animation = 'jump 1s running';
-            animation('jump');
-            setTimeout(() => {
-                player.style.animation = 'none';
-            },1000);
-            
-            break;
-        default:
-    }
+        //alert(Event.keyCode);
+        switch(Event.keyCode){
+            case 32:
+                player.style.animation = 'jump 1s running';
+                animation('jump');
+                setTimeout(() => {
+                    player.style.animation = 'none';
+                },1000);
+                
+                break;
+            default:
+                if(Event.type == 'click')
+                {
+                    player.style.animation = 'jump 1s running';
+                    animation('jump');
+                    setTimeout(() => {
+                        player.style.animation = 'none';
+                    },1000);
+                }
+        }
+
+       
 }
 //animation du joueur
 function animation(type,toggle){
@@ -48,11 +59,11 @@ function animation(type,toggle){
             
             document.removeEventListener('keydown', movement);
             clearInterval(walk);
-            player.src = "./images/start-jump.webp";
+            player.src = "./_assets/images/start-jump.webp";
             setTimeout(() => {
-                player.src = "./images/end-jump.webp";
+                player.src = "./_assets/images/end-jump.webp";
                 setTimeout(() => {
-                    player.src = "./images/initial.webp";
+                    player.src = "./_assets/images/initial.webp";
                 },300);
                 detailWalkMovement(); 
             },300);
@@ -61,7 +72,7 @@ function animation(type,toggle){
             break;
         default:
             clearInterval(walk);
-            player.src = "./images/initial.webp";
+            player.src = "./_assets/images/initial.webp";
     }
 }
 
@@ -69,11 +80,11 @@ function animation(type,toggle){
 function detailWalkMovement(){
     walk = clearInterval(walk);
     walk = setInterval(async()=>{
-        player.src = "./images/start-run.webp";
+        player.src = "./_assets/images/start-run.webp";
         setTimeout(() => {
-            player.src = "./images/run-1.webp";
+            player.src = "./_assets/images/run-1.webp";
             setTimeout(() => {
-                player.src = "./images/run-2.webp";
+                player.src = "./_assets/images/run-2.webp";
                 setTimeout(() => {
                 },100);
             },100);
