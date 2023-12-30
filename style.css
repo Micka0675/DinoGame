@@ -1,0 +1,71 @@
+:root{
+    --primary-color:black;
+    --secondary-color:white;
+}
+
+html{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+html, html *{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80px;
+}
+
+main{
+    width: 1100px;
+    height: 300px;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+}
+
+main, main div,main div img{
+    overflow: hidden;
+}
+
+.start-button{
+    background-color: var(--secondary-color);
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    margin: auto;
+}
+
+.start-button:hover{
+    cursor: pointer;
+}
+
+.player{
+    left: 50%;
+    top: 55%;
+    position: absolute;
+    transform: translate(-50% ,50%);
+}
+
+@keyframes jump{
+    50%{top:10%;}
+    100%{top:55%;}
+} 
+
+@keyframes animateBckd{
+    from {
+        background-position: 0px -300px;
+    }
+    to {
+        background-position: -1920px -300px;
+    }
+}
