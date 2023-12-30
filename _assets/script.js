@@ -11,7 +11,7 @@ function play(){
     startButton.style.display = 'none';
     gameSpace.style.transition = '1s';
     player.style.transition = '1s';
-    player.style.left = '50px';
+    player.style.left = '10%';
     gameSpace.style.backgroundImage = 'url("./_assets/images/bckd.webp")';
     gameSpace.style.backgroundRepeat = 'repeat';
     gameSpace.style.backgroundPosition = "0px 0px";
