@@ -56,6 +56,12 @@ main, main div,main div img{
     transform: translate(-50% ,50%);
 }
 
+@media screen and (max-width: 1100px) {
+    main{
+        width: 100%;
+    }
+}
+
 @keyframes jump{
     50%{top:10%;}
     100%{top:55%;}
