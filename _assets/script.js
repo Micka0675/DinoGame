@@ -1,5 +1,7 @@
 let startButton = document.getElementById("startGame");
 let player = document.getElementsByClassName("player")[0];
+let toggle = true;
+var walk;
 //commencer une partie
 startButton.addEventListener('click',play);
 //mise en place du jeu
@@ -14,9 +16,9 @@ function play(){
     gameSpace.style.backgroundRepeat = 'repeat';
     gameSpace.style.backgroundPosition = "0px 0px";
     gameSpace.style.animation = 'animateBckd 5s linear infinite';
-    document.addEventListener('keyup', stopAnim);
+    // document.addEventListener('keyup', stopAnim);
     document.addEventListener('keydown', movement);
-    animation('walk');
+    animation('walk',toggle); 
 };
 
 //mouvement du joueur
@@ -35,40 +37,49 @@ function movement(Event){
     }
 }
 //animation du joueur
-function animation(type){
+function animation(type,toggle){
     switch(type){
         case 'walk':
-            
 
-            setInterval(()=>{
-                player.src = "./_assets/images/start-run.webp";
-                setTimeout(() => {
-                    player.src = "./_assets/images/run-1.webp";
-                    setTimeout(() => {
-                        player.src = "./_assets/images/run-2.webp";
-                        setTimeout(() => {
-                        },100);
-                    },100);
-                },100);
-            },300);
+            detailWalkMovement();
+
             break;
         case 'jump':
             
+            document.removeEventListener('keydown', movement);
+            clearInterval(walk);
             player.src = "./_assets/images/start-jump.webp";
             setTimeout(() => {
                 player.src = "./_assets/images/end-jump.webp";
                 setTimeout(() => {
                     player.src = "./_assets/images/initial.webp";
-                },500);
-            },500);
-            
+                },300);
+                detailWalkMovement(); 
+            },300);
             
             
             break;
         default:
-            document.removeEventListener('keydown',movement);
+            clearInterval(walk);
             player.src = "./_assets/images/initial.webp";
     }
+}
+
+//detail du mouvement de course
+function detailWalkMovement(){
+    walk = clearInterval(walk);
+    walk = setInterval(async()=>{
+        player.src = "./_assets/images/start-run.webp";
+        setTimeout(() => {
+            player.src = "./_assets/images/run-1.webp";
+            setTimeout(() => {
+                player.src = "./_assets/images/run-2.webp";
+                setTimeout(() => {
+                },100);
+            },100);
+        },100);
+        document.addEventListener('keydown', movement);
+    },300);
 }
 
 //Stop animation
