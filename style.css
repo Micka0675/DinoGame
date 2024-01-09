@@ -72,6 +72,35 @@ main, main div,main div img{
     transform: translate(-50%, 50%);
 }
 
+.life-bar{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 150px;
+    height: 20px;
+    border: solid black 2px;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+.life-bar-content{
+    background: rgb(11,241,124);
+    background: -moz-linear-gradient(90deg, rgba(11,241,124,1) 0%, rgba(114,254,28,1) 46%, rgba(201,240,8,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(11,241,124,1) 0%, rgba(114,254,28,1) 46%, rgba(201,240,8,1) 100%);
+    background: linear-gradient(90deg, rgba(11,241,124,1) 0%, rgba(114,254,28,1) 46%, rgba(201,240,8,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0bf17c",endColorstr="#c9f008",GradientType=1);
+    width: 0%;
+    height: 100%;
+    transition:2s;
+}
+
+.life-bar p{
+    position: absolute;
+    top: 0;
+    left:25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+}
+
 @media screen and (max-width: 1100px) {
     main{
         width: 100%;
